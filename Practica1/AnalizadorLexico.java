@@ -23,16 +23,20 @@ class AnalizadorLexico {
         int b =0;
         StringBuilder tok = new StringBuilder();
         char leido = '\n';
+
         try{
             b = archivo.read();
         }catch(IOException ie){
             System.out.println("Error");
         }
+
         if (b == -1){
             t.tipo = 22;
             return t;
         }
+
         leido = (char) b;
+        
         if(leido == ' ' || leido == '\t'){
             col++;
             siguienteToken();
@@ -58,50 +62,71 @@ class AnalizadorLexico {
                     t.lexema = tok.toString();
                     break;
                 }
-                if(leido == ')'){
+                else if(leido == ')'){
                     t.tipo = 1;
                     estado = 3;
                     t.lexema = tok.toString();
                     break;
                 }
-                if(leido == ':'){
+                else if(leido == ':'){
                     t.tipo = 2;
                     estado = 4;
                     t.lexema = tok.toString();
                     break;
                 }
-                if(leido == '='){
+                else if(leido == '='){
                     t.tipo = 3;
                     estado = 5;
                     t.lexema = tok.toString();
                     break;
                 }
-                if(leido == ';'){
+                else if(leido == ';'){
                     t.tipo = 4;
                     estado = 6;
                     t.lexema = tok.toString();
                     break;
                 }
-                if(leido == '-'){
+                else if(leido == '+'){
+                    t.tipo = 6;
+                    t.lexema = tok.toString();
+                }
+                else if(leido == '*'){
+                    t.tipo = 7;
+                    t.lexema = tok.toString();
+                }
+                else if(leido == '/'){
+                    t.tipo = 7;
+                    t.lexema = tok.toString();
+                }
+                else if(leido == '-'){
                     estado = 7;
                 }
-                if(leido == 'f'){
+                else if(leido == 'f'){
                     estado = 13;                    
                 }
                 else {
                     t.lexema = tok.toString();
                 }
-            case 2:
-                
-            case 3:
-                
-            case 4:
-                
-            case 5:
-    
-            case 6:
                 
             case 7:
+                if (estado == 7){
+                    try{
+                        b = archivo.read();
+                    }catch(IOException ie){
+                        System.out.println("Error");
+                    }
+                    leido = (char) b;
+                    if(leido == '>'){                   
+                        tok.append(leido);
+                        t.tipo = 3;
+                        t.lexema = tok.toString();
+                    }
+                    else{
+                        t.tipo = 6;
+                        t.lexema = tok.toString();
+                    } 
+                    return t;              
+                }
                 
             case 13:
                 if(estado == 13){
@@ -118,6 +143,7 @@ class AnalizadorLexico {
                         estado = 14;
                     }
                 }
+
             case 14:
                 if(estado == 14){
 
