@@ -53,36 +53,33 @@ public class Token {
 			case 7:
 				return "* /";
 			case 8:
-				return "fn";
-                        case 9:
-                            return "endfn";
-                        case 10:
-                            return "int";
-                        case 11:
-                            return "real";
-                        case 12:
-                            return  "let";
-                        case 13:
-                            return "if";
-                        case 14:
-                            return "else";
-                        case 15:
-                            return "fi";
-                        case 16:
-                            return "print";
-                        case 17:
-                            return "blq"
-                        case 18:
-                            return "fblq";
-                        case 19:
-                            return lexema;
-                        case 20:
-                            return lexema;
-                        case 21:
-                            return lexema;
-                    }
-                            
-                            
+				return "'fn'";
+			case 9:
+				return "'endfn'";
+			case 10:
+				return "'int'";
+			case 11:
+				return "'real'";
+			case 12:
+				return  "'let'";
+			case 13:
+				return "'if'";
+			case 14:
+				return "'else'";
+			case 15:
+				return "'fi'";
+			case 16:
+				return "'print'";
+			case 17:
+				return "blq";
+			case 18:
+				return "fblq";
+			case 19:
+				return lexema;
+			case 20:
+				return lexema;
+			case 21:
+				return lexema;
 		}
 		return "";
 	}

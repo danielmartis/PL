@@ -9,6 +9,7 @@ class AnalizadorLexico {
     RandomAccessFile archivo;
     Token t;
     char almacenado;
+    char almacenado2;
     char ultimo;        
     int ultcol;
     boolean ejecutado = false;
@@ -20,6 +21,7 @@ class AnalizadorLexico {
         archivo = file;
         t = new Token();
         almacenado = 0;
+        almacenado2 = 0;
         ultimo = 0;
     }
 
@@ -28,7 +30,7 @@ class AnalizadorLexico {
         try{
             leido = archivo.read();
         }catch(IOException ie){
-            System.out.println("Error");
+            System.exit(-1);
         }
         return leido;
     }
@@ -71,18 +73,16 @@ class AnalizadorLexico {
         t = new Token();
         String p = new String();
         t.fila = fil;
-         t.columna = col;
+        t.columna = col;
         if(almacenado != 0){
             leido = almacenado;
             //ystem.out.println(leido);
             almacenado = 0;
-            
         }
         else{
             b = leerCaracter();
             if (b == -1){
                 t.tipo = 22;
-                 
             }
             leido = (char) b;
             almacenado = 0;
@@ -191,8 +191,7 @@ class AnalizadorLexico {
                 }
                 else {
                     System.err.println("Error lexico (" + fil + "," + col + "): caracter '" + leido+"' incorrecto");
-                    t.tipo = 22;
-                    return t;
+                    System.exit(-1);
                 }
                 
             case 7:
@@ -259,8 +258,7 @@ class AnalizadorLexico {
                         }while(b != -1 && !terminado);
                         if(b == -1){
                             System.err.println("Error lexico: fin de fichero inseperado");
-                            t.tipo = 22;
-                            return t;
+                            System.exit(-1);
                         }
                     }
                     if(nuevoLeido != '*'){
@@ -1060,7 +1058,8 @@ class AnalizadorLexico {
                     }
                     //t.lexema=tok.toString();
                     if(leido == '.'){
-                        tok.append(leido);
+                        //tok.append(leido);
+                        almacenado = leido;
                         estado = 61;
                     }
 
@@ -1072,15 +1071,21 @@ class AnalizadorLexico {
                     }
                     else{
                         System.err.println("Error lexico (" + fil + "," + col + "): caracter '" + leido+"' incorrecto");
-                        t.tipo = 22;
-                        return t;
+                        System.exit(-1);
                     }
                 }
             case 61:
                 if(estado == 61){
                     b = leerCaracter();
                     leido =(char) b;
-                    
+                    if(esNumero(leido)){
+                        tok.append(almacenado);
+                        almacenado = 0;
+                    }
+                    else{
+                        almacenado2 = leido;
+                        t.tipo = 20;
+                    }
                     while(esNumero(leido)){
                         tok.append(leido);
                         b = leerCaracter();
@@ -1088,11 +1093,10 @@ class AnalizadorLexico {
                     }
                     if(esLetra(leido)){
                         System.err.println("Error lexico (" + fil + "," + col + "): caracter '" + leido+"' incorrecto");
-                        t.tipo = 22;
-                        return t;
+                        System.exit(-1);
                     }
 
-                    else{
+                    else if(t.tipo != 20){
                         t.lexema = tok.toString();
                         t.tipo =21;
                         almacenado = leido;
