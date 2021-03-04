@@ -1063,16 +1063,16 @@ class AnalizadorLexico {
                         estado = 61;
                     }
 
-                    else if(!esLetra(leido)){
+                    else{
                         t.tipo = 20;
                         t.lexema = tok.toString();
                         almacenado = leido;
                         
                     }
-                    else{
+                    /*else{
                         System.err.println("Error lexico (" + fil + "," + col + "): caracter '" + leido+"' incorrecto");
                         System.exit(-1);
-                    }
+                    }*/
                 }
             case 61:
                 if(estado == 61){
@@ -1083,6 +1083,7 @@ class AnalizadorLexico {
                         almacenado = 0;
                     }
                     else{
+                        t.lexema = tok.toString();
                         almacenado2 = leido;
                         t.tipo = 20;
                     }
@@ -1091,12 +1092,12 @@ class AnalizadorLexico {
                         b = leerCaracter();
                         leido = (char)b;
                     }
-                    if(esLetra(leido)){
+                    /*if(esLetra(leido)){
                         System.err.println("Error lexico (" + fil + "," + col + "): caracter '" + leido+"' incorrecto");
                         System.exit(-1);
-                    }
+                    }*/
 
-                    else if(t.tipo != 20){
+                    if(t.tipo != 20){
                         t.lexema = tok.toString();
                         t.tipo =21;
                         almacenado = leido;
