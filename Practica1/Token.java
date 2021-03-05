@@ -71,15 +71,15 @@ public class Token {
 			case 16:
 				return "'print'";
 			case 17:
-				return "blq";
+				return "'blq'";
 			case 18:
-				return "fblq";
+				return "'fblq'";
 			case 19:
-				return lexema;
+				return "identifcador";
 			case 20:
-				return lexema;
+				return "numint";
 			case 21:
-				return lexema;
+				return "numreal";
 		}
 		return "";
 	}

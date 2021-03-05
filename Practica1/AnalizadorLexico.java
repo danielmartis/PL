@@ -113,6 +113,10 @@ class AnalizadorLexico {
                 break;
             case 1:
                 tok.append(leido);
+                if(almacenado2 != 0){
+                    tok.append(almacenado2);
+                    almacenado2 = 0;
+                }
                 if(Espacio(leido)){
                     break;
                 }
