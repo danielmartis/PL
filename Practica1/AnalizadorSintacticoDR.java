@@ -437,9 +437,9 @@ class AnalizadorSintacticoDR{
         else if(t.tipo == Token.PARI){
             //System.out.println("37 ");
             reglas.append(" 37");
-            emparejar(Token.NUMREAL);
+            emparejar(Token.PARI);
             E();
-            emparejar(Token.NUMREAL);
+            emparejar(Token.PARD);
         }
         else {
            ArrayList<Integer> tk = new ArrayList();
