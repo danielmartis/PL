@@ -190,9 +190,19 @@ class AnalizadorSintacticoDR{
 
     public void Cod(){
         //System.out.println("13 ");
-        reglas.append(" 13");
-        I();
-        Codp();
+        if(t.tipo == Token.BLQ || t.tipo == Token.LET || t.tipo == Token.PRINT || t.tipo == Token.IF){
+            reglas.append(" 13");
+            I();
+            Codp();
+        }
+        else{
+           ArrayList<Integer> tk = new ArrayList();
+           tk.add(Token.BLQ);
+           tk.add(Token.LET);
+           tk.add(Token.PRINT);
+           tk.add(Token.IF);
+           errorSintaxis(tk);
+        }
     }
 
     public void Codp(){
@@ -346,10 +356,20 @@ class AnalizadorSintacticoDR{
     }
 
     public void E(){
-        //System.out.println("28 ");
-        reglas.append(" 28");
-        T();
-        Ep();
+        if(t.tipo == Token.ID || t.tipo == Token.NUMINT ||t.tipo == Token.NUMREAL ||t.tipo == Token.PARI){
+            //System.out.println("28 ");
+            reglas.append(" 28");
+            T();
+            Ep();
+        }
+        else{
+           ArrayList<Integer> tk = new ArrayList();
+           tk.add(Token.ID);
+           tk.add(Token.PARI);
+           tk.add(Token.NUMINT);
+           tk.add(Token.NUMREAL);
+           errorSintaxis(tk); 
+        }
     }
 
     public void Ep(){
@@ -382,10 +402,20 @@ class AnalizadorSintacticoDR{
     }
 
     public void T(){
+        if(t.tipo == Token.ID || t.tipo == Token.NUMINT ||t.tipo == Token.NUMREAL ||t.tipo == Token.PARI){
         //System.out.println("31 ");
-        reglas.append(" 31");
-        F();
-        Tp();
+            reglas.append(" 31");
+            F();
+            Tp();
+        }
+        else{
+           ArrayList<Integer> tk = new ArrayList();
+           tk.add(Token.ID);
+           tk.add(Token.PARI);
+           tk.add(Token.NUMINT);
+           tk.add(Token.NUMREAL);
+           errorSintaxis(tk);
+        }
     }
 
     public void Tp(){
