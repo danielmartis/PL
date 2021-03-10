@@ -830,7 +830,7 @@ class AnalizadorLexico {
                     else{
                         t.lexema = tok.toString();
                         almacenado2 = leido;
-                        t.tipo = 20;
+                        t.tipo = 15;
                     }
                     while(esNumero(leido)){
                         tok.append(leido);
@@ -842,7 +842,7 @@ class AnalizadorLexico {
                         System.exit(-1);
                     }*/
 
-                    if(t.tipo != 20){
+                    if(t.tipo != 15){
                         t.lexema = tok.toString();
                         t.tipo =16;
                         almacenado = leido;
