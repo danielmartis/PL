@@ -87,6 +87,7 @@ class AnalizadorSintacticoDR{
             tk.add(Token.PRINT);
             tk.add(Token.IF);
             tk.add(Token.BLQ);
+	    tk.add(Token.EOF);
             errorSintaxis(tk);
         }
     }

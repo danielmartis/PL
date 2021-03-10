@@ -75,11 +75,13 @@ public class Token {
 			case 18:
 				return "'fblq'";
 			case 19:
-				return "identifcador";
+				return "identificador";
 			case 20:
-				return "numint";
+				return "numero entero";
 			case 21:
-				return "numreal";
+				return "numero real";
+			case 22:
+				return "fin de fichero";
 		}
 		return "";
 	}

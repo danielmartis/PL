@@ -261,7 +261,7 @@ class AnalizadorLexico {
                             }
                         }while(b != -1 && !terminado);
                         if(b == -1){
-                            System.err.println("Error lexico: fin de fichero inseperado");
+                            System.err.println("Error lexico: fin de fichero inesperado");
                             System.exit(-1);
                         }
                     }
