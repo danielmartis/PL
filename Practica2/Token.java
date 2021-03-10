@@ -23,16 +23,11 @@ public class Token {
 		INT		= 10,
 		REAL		= 11,
 		LET		= 12,
-		IF              = 13,
-		ELSE            = 14,
-		FI              = 15,
-		PRINT           = 16,
-		BLQ		= 17,
-		FBLQ		= 18,
-		ID		= 19,
-		NUMINT		= 20,
-		NUMREAL		= 21,
-		EOF		= 22;
+		PRINT           = 13,
+		ID		= 14,
+		NUMINT		= 15,
+		NUMREAL		= 16,
+		EOF		= 17;
 
 	public String toString(){
 	    switch(tipo){
@@ -63,24 +58,14 @@ public class Token {
 			case 12:
 				return  "'let'";
 			case 13:
-				return "'if'";
-			case 14:
-				return "'else'";
-			case 15:
-				return "'fi'";
-			case 16:
 				return "'print'";
-			case 17:
-				return "'blq'";
-			case 18:
-				return "'fblq'";
-			case 19:
+			case 14:
 				return "identificador";
-			case 20:
+			case 15:
 				return "numero entero";
-			case 21:
+			case 16:
 				return "numero real";
-			case 22:
+			case 17:
 				return "fin de fichero";
 		}
 		return "";

@@ -82,7 +82,7 @@ class AnalizadorLexico {
         else{
             b = leerCaracter();
             if (b == -1){
-                t.tipo = 22;
+                t.tipo = 17;
             }
             leido = (char) b;
             almacenado = 0;
@@ -105,7 +105,7 @@ class AnalizadorLexico {
             ejecutado = false;
         }
         if(b == -1){
-            t.tipo = 22;
+            t.tipo = 17;
             return t;
         }
         switch(estado){
@@ -275,7 +275,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                         
@@ -285,7 +285,7 @@ class AnalizadorLexico {
                     }
 
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -294,7 +294,7 @@ class AnalizadorLexico {
                     }
                     else if(letraDigito(leido)){
                         estado = 16;
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                     }
                 }
@@ -322,7 +322,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -330,7 +330,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else {
-                        t.tipo = 19;
+                        t.tipo = 14;
                         almacenado = leido;
                     }
                     if(leido == 'n'){
@@ -338,7 +338,7 @@ class AnalizadorLexico {
                     }
                     else {
                         estado = 16;
-                        t.tipo = 19;
+                        t.tipo = 14;
                     }
                 }
             case 26:
@@ -347,7 +347,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado =  leido;
                     }
@@ -355,7 +355,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else {
-                        t.tipo = 19;
+                        t.tipo = 14;
                         almacenado = leido;
                     }
                     if(leido == 'd'){
@@ -371,7 +371,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -395,7 +395,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -403,7 +403,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         almacenado = leido;
                         t.lexema = tok.toString();
                     }
@@ -411,7 +411,7 @@ class AnalizadorLexico {
                         estado = 29;
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         estado = 16;
                     }
                 }
@@ -423,7 +423,7 @@ class AnalizadorLexico {
                     
                     if(letraDigito(leido)){
                         tok.append(leido);
-                        t.tipo = 19;
+                        t.tipo = 14;
                         estado = 16;
                     }
                     else{
@@ -440,7 +440,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -448,7 +448,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         almacenado = leido;
                         t.lexema = tok.toString();
                     }
@@ -457,7 +457,7 @@ class AnalizadorLexico {
                     }
                     else if(letraDigito(leido)){
                         estado = 16;
-                        t.tipo = 19;
+                        t.tipo = 14;
                     }
                     
                 }
@@ -468,7 +468,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -476,7 +476,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else {
-                        t.tipo = 19;
+                        t.tipo = 14;
                         almacenado = leido;
                         t.lexema = tok.toString();
                     }
@@ -485,7 +485,7 @@ class AnalizadorLexico {
                     }
                     else {
                         estado = 16;
-                        t.tipo = 19;
+                        t.tipo = 14;
                     }
                 }
             case 33:
@@ -496,7 +496,7 @@ class AnalizadorLexico {
                     if(letraDigito(leido)){
                         tok.append(leido);
                         estado = 16;
-                        t.tipo = 19;
+                        t.tipo = 14;
                     }
                     else {
                         t.tipo = 10;
@@ -513,7 +513,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -521,7 +521,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else {
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -529,7 +529,7 @@ class AnalizadorLexico {
                         estado = 38;
                     }
                     else {
-                        t.tipo = 19;
+                        t.tipo = 14;
                         estado = 16;
                     }
                 }
@@ -540,7 +540,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -548,7 +548,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -557,7 +557,7 @@ class AnalizadorLexico {
                     }
                     else{
                         estado = 16;
-                        t.tipo = 19;
+                        t.tipo = 14;
                     }
                 }
 
@@ -567,7 +567,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -575,7 +575,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -593,7 +593,7 @@ class AnalizadorLexico {
                     
                     if(letraDigito(leido)){
                         estado = 16;
-                        t.tipo = 19;
+                        t.tipo = 14;
                         tok.append(leido);
                     }
                     else {
@@ -610,7 +610,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -618,7 +618,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -635,7 +635,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -643,7 +643,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -677,7 +677,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -685,7 +685,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -702,7 +702,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -710,7 +710,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -728,7 +728,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -736,7 +736,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -753,7 +753,7 @@ class AnalizadorLexico {
                     leido = (char) b;
                     
                     if(Espacio(leido)){
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -761,7 +761,7 @@ class AnalizadorLexico {
                         tok.append(leido);
                     }
                     else{
-                        t.tipo = 19;
+                        t.tipo = 14;
                         t.lexema = tok.toString();
                         almacenado = leido;
                     }
@@ -780,11 +780,11 @@ class AnalizadorLexico {
                     
                     if(letraDigito(leido)){
                         estado = 16;
-                        t.tipo = 19;
+                        t.tipo = 14;
                         tok.append(leido);
                     }
                     else {
-                        t.tipo = 16;
+                        t.tipo = 13;
                         almacenado = leido;
                         t.lexema = tok.toString();
                     }
@@ -809,7 +809,7 @@ class AnalizadorLexico {
                     }
 
                     else{
-                        t.tipo = 20;
+                        t.tipo = 15;
                         t.lexema = tok.toString();
                         almacenado = leido;
                         
@@ -844,7 +844,7 @@ class AnalizadorLexico {
 
                     if(t.tipo != 20){
                         t.lexema = tok.toString();
-                        t.tipo =21;
+                        t.tipo =16;
                         almacenado = leido;
                         
                     }
@@ -870,7 +870,7 @@ class AnalizadorLexico {
                             }*/
                         }while(letraDigito(leido));
                     }
-                    t.tipo = 19;
+                    t.tipo = 14;
                     t.lexema = tok.toString();
                     almacenado = leido;
                 }
